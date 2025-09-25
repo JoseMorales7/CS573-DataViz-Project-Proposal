@@ -18,11 +18,12 @@ But this could be broken down into multiple questions
 ## Sketches
 
 Some sketches of potential visualization include:
-image.png
+
+<img width="665" height="574" alt="image" src="https://github.com/user-attachments/assets/327fbd4d-0351-4c77-a1de-bca06cbd5f0e" />
 
 This visualization highlights the number of vehicles involved in collisions using a standard bar chart. The x-axis represents the different vehicle makes, while the y-axis shows the frequency of accidents associated with each make. This chart helps address the question posed earlier and offers insight into which vehicle brands are more frequently involved in crashes—potentially pointing to patterns worth further investigation or caution. Another potential representation of the same data could be seen below:
 
-image.png
+<img width="808" height="527" alt="image" src="https://github.com/user-attachments/assets/9aa54e61-35dd-4cc1-b10f-25e5cd1f029e" />
 
 Although this implementation covers the same data, it is more difficult to determine the relative quantities amongst the different car makes. The bar chart would be better in this scenario, but the bubble chart could be a potential pick.
 
@@ -31,7 +32,7 @@ Although this implementation covers the same data, it is more difficult to deter
 
 I’ve created a proof of concept visualization of this data. It's a stacked bar chart highlighting the number of accidents at the different hours of the data. The stacked bar chart includes accidents in which an injury has been reported, a death has been reported, or simply $1000 worth of damage has been caused. Although we cannot see anything corresponding to the number of deaths for each hour, the bar is there but much smaller than the others. From the visualization, we can see that the number of accidents peak at around 4-5pm, which makes sense as people are mostly leaving work at this time. The "safest" time to drive based off this chart is around 2-5 am.
 
-[![image](https://user-images.githubusercontent.com/68416/65240758-9ef6c980-daff-11e9-9ffa-e35fc62683d2.png)](https://vizhub.com/JoseMorales7/8f5a29dbad174b1a90e7671b09b654e2)
+[![image](https://github.com/user-attachments/assets/05870ee7-9732-498a-b1ba-507c50bcd7f8)](https://vizhub.com/JoseMorales7/8f5a29dbad174b1a90e7671b09b654e2)
 
 
 
