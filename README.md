@@ -53,5 +53,22 @@ In week 4, I’ll work on the interactive borough map. That means finding or pre
 
 In week 5, I’ll bring everything together into a single report. I’ll make sure the design looks consistent across all the charts, add clear labels, legends, and annotations, and check that each research question has at least one visualization addressing it. I’ll also start writing down the methods I used and decisions I made along the way.  
 
-In week 6, I’ll focus on polishing everything. This includes cleaning up my code and repo, making sure the visuals are fully finished, and checking for clarity and accessibility.  
+
+### Update — 10/1/2025
+
+I’ve added code to efficiently read and split the crash dataset so the entire file doesn’t need to be uploaded to VizHub (it’s far too large). After experimenting with some sketches in Python, I decided to replicate and extend them using D3 and React.
+
+#### 1. Borough-Level Crash Map  
+The first visualization shows NYC’s boroughs, with crash counts aggregated by borough.  
+[![image](https://github.com/user-attachments/assets/9938e342-c797-43d8-b58b-60f70b30d889)](https://vizhub.com/JoseMorales7/e3127b2fe72b4cb1a181fda3499f9aa7)
+
+#### 2. Crash Locations in 2025  
+The second visualization is a point map of all crashes recorded in 2025 (so far). From the density of points, you can actually make out the structure of streets and neighborhoods.  
+[![image](https://github.com/user-attachments/assets/44627be9-088f-4986-9bed-ee3adf4a900b)](https://vizhub.com/JoseMorales7/4c4fcb7e1530498a986035a3d1fbe64f)
+
+
+#### 3. Vehicle Make Distribution  
+Finally, I created a bar chart of the most common SUV/Sedan makes involved in crashes. While I expected to see higher crash counts from brands like Jeep, Audi, or BMW, the sheer volume of Toyotas and Hondas in NYC traffic dominates the totals. As a next step, I may try normalizing these counts by the number of registered vehicles of each make in NYC (if such data is available). That would give a better sense of whether certain makes are disproportionately represented in crashes.  
+[![image](https://github.com/user-attachments/assets/41ec5a84-9d09-4b1e-8d6e-b77ec0fb9606)](https://vizhub.com/JoseMorales7/82ef6a30ea7840a7b79e017ee4831b75)
+
 
