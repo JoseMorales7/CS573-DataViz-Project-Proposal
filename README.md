@@ -76,3 +76,16 @@ Finally, I created a bar chart of the most common SUV/Sedan makes involved in cr
 I wanted to see how many different ideas I could fit into a single visualization on VizHub before running into space or performance limits. Building on the borough-level crash map from last week, I made a few changes to make it more interactive and informative. Instead of just showing all crashes from this year, this version includes all accidents involving injured pedestrians, cyclists, and motorists. When you hover over a borough, you can see detailed stats on the number of injuries and fatalities. You can also toggle which group’s crash points appear on the map. I wouldn’t recommend turning on all of them at once since it gets pretty slow. It took some trial and error to get everything working smoothly, but I’m happy with how it turned out. I thought about adding map controls for panning and zooming, but decided not to push this single visualization too far, at least for now.
 
 [![image](https://github.com/user-attachments/assets/f1708954-a557-4406-853b-79ec5b6d8c98)](https://vizhub.com/JoseMorales7/dc3867d5156342c0b6e5189be5301ffe)
+
+
+### Update — 10/22/2025
+
+This week I experimented with adding interactive legends to a couple of my earlier visualizations, inspired by one of this week’s videos. I implemented this feature in two different projects, the NYC crash point map and the total crash count visualization.
+[![image](https://github.com/user-attachments/assets/e6a90c1b-cfc3-4376-abc2-75b0bbc55a7d)](https://vizhub.com/JoseMorales7/8479aa78eec8481884862041f3ba2933)
+
+For the point map, I initially tried making the crash points within each borough transparent so users could toggle visibility by borough. However, I realized the dataset I am using only includes latitude and longitude, with no direct mapping to boroughs, so identifying which crash belongs to which borough would require modifying the dataset. Even without borough-level filtering, updating all the individual points makes this version run fairly slowly.
+[![image](https://github.com/user-attachments/assets/60fdf6e5-7626-4760-91ba-0eba1b18e1f5)](https://vizhub.com/JoseMorales7/ed7c450fc5f246d2a5fc6343ef4a5219)
+
+I also took the opportunity to address a piece of feedback from my Interactive NYC Borough Map, where I added scrolling and panning capabilities. The performance is not great yet, it is noticeably slow when moving around the map, but the functionality is working. Overall, it is a good step toward making the visualizations feel more dynamic and explorable.
+[![image](https://github.com/user-attachments/assets/2cfe5a94-99fa-4aba-b074-de65c85dd1ae)](https://vizhub.com/JoseMorales7/407a118dd83e4e698888cae8b58a5b54)
+
