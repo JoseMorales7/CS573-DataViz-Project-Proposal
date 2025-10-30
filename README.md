@@ -89,3 +89,22 @@ For the point map, I initially tried making the crash points within each borough
 I also took the opportunity to address a piece of feedback from my Interactive NYC Borough Map, where I added scrolling and panning capabilities. The performance is not great yet, it is noticeably slow when moving around the map, but the functionality is working. Overall, it is a good step toward making the visualizations feel more dynamic and explorable.
 [![image](https://github.com/user-attachments/assets/2cfe5a94-99fa-4aba-b074-de65c85dd1ae)](https://vizhub.com/JoseMorales7/407a118dd83e4e698888cae8b58a5b54)
 
+
+### Update — 10/29/2025
+
+This week I focused on improving interactivity in the bar chart visualizations I had previously created. I built two variations that make it easier to explore the data and highlight specific values.
+
+#### 1. Bar Highlight on Hover
+
+In the first version, hovering over a single bar now highlights it while dimming the rest, making it easier to focus on that specific category. A small tooltip box also appears, displaying the exact count represented by that bar. I ran into an issue resetting the opacity of all bars when the hover state ended, but after some debugging, I was able to fix it so that everything correctly resets on mouseout.
+
+[![image](https://github.com/user-attachments/assets/51e051a3-fdef-49d7-91aa-276a2b2e16ee)](https://vizhub.com/JoseMorales7/feb40126c5aa40409a3ed9729c674f49)
+
+#### 2. Interactive Legend for Stacked Bars
+
+The second version adds interactivity through the legend. When hovering over any item in the legend, the corresponding segment in the stacked bar chart is highlighted. This feature is particularly helpful for emphasizing smaller segments—like the bar showing the number of accidents involving a fatality—which can otherwise be hard to notice due to their relatively small size.
+="https://github.com/user-attachments/assets/fd99e6e8-5f43-4dca-859d-6ed9c9caaa02"
+[![image](https://github.com/user-attachments/assets/fd99e6e8-5f43-4dca-859d-6ed9c9caaa02)](https://vizhub.com/JoseMorales7/6eb1ac12bc2a46b2bc685a9f02e92d05)
+
+
+These updates don’t change the overall structure of the visualizations, but they make them feel much more responsive and user-friendly. Next, I might look into combining both hover interactions (bars and legend) into a single version.
