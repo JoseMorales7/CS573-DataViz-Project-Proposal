@@ -106,5 +106,12 @@ The second version adds interactivity through the legend. When hovering over any
 ="https://github.com/user-attachments/assets/fd99e6e8-5f43-4dca-859d-6ed9c9caaa02"
 [![image](https://github.com/user-attachments/assets/fd99e6e8-5f43-4dca-859d-6ed9c9caaa02)](https://vizhub.com/JoseMorales7/6eb1ac12bc2a46b2bc685a9f02e92d05)
 
+### Update — 11/5/2025
 
-These updates don’t change the overall structure of the visualizations, but they make them feel much more responsive and user-friendly. Next, I might look into combining both hover interactions (bars and legend) into a single version.
+This week I attempted to create a sparkline plot similar to the one shown in the lecture videos. My goal was to visualize monthly crash data over time in a compact form. However, I ran into issues getting my data to load correctly through VizHub. After checking the browser console, it appeared that the file I was referencing simply could not be found. I originally thought it might be related to using a JSON format, but even after switching to a CSV file and using nearly identical code that had worked before, I encountered the same error. Since I couldn’t resolve the file-loading issue in VizHub, I decided to take a slightly different approach. I reused parts of my earlier “crash over time” visualization and modified it to function like a sparkline by showing the number of crashes when hovering over different points on the plot. This provided a similar interactive effect but not quite as nice looking.
+[![image](https://github.com/user-attachments/assets/7d660add-049d-46f7-8288-02256be44c46)](https://vizhub.com/JoseMorales7/3eae91ada8274f529f10ac87fd20c708)
+
+
+One thing I noticed was that the crash counts fluctuated significantly from day to day, producing a very jagged line with many peaks and troughs. To make the visualization more readable while still preserving the general trend, I applied a simple smoothing method to the data before plotting it. This made the sparkline easier to interpret.
+
+[![image](https://github.com/user-attachments/assets/017da182-8279-4a85-bc5c-883f5c7b0dff)](https://vizhub.com/JoseMorales7/16fef06f397b4139ad69c7da9cdadf9c)
