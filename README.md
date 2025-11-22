@@ -153,5 +153,9 @@ Over the course of this project, I explored crash patterns in NYC through a seri
 
 This project strengthened my skills in **data wrangling**, **D3**, **React**, **geospatial visualization**, and **interactive design**, and provides a strong foundation for further urban safety research.
 
+# Updates 11/22/2025
+
+I’ve made some final touch-ups to my visualizations. Based on Matt’s feedback, I updated the plot in Section 7 so that the y-axis is properly aligned and starts at 0, giving a more accurate sense of the number of daily collisions. I also optimized the visualization in Section 5, which was previously laggy due to the large data volume and some inefficiencies in the code. To address this, I restricted the dataset to collisions from 2025 and refactored the code, resulting in a slightly more efficient codebase and noticeably smoother rendering.
+
 ---
 
