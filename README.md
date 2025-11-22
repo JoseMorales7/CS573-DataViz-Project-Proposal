@@ -156,6 +156,10 @@ This project strengthened my skills in **data wrangling**, **D3**, **React**, **
 # Updates 11/22/2025
 
 I’ve made some final touch-ups to my visualizations. Based on Matt’s feedback, I updated the plot in Section 7 so that the y-axis is properly aligned and starts at 0, giving a more accurate sense of the number of daily collisions. I also optimized the visualization in Section 5, which was previously laggy due to the large data volume and some inefficiencies in the code. To address this, I restricted the dataset to collisions from 2025 and refactored the code, resulting in a slightly more efficient codebase and noticeably smoother rendering.
+[![image](https://github.com/user-attachments/assets/4ee1e5d4-d158-45de-96a0-79e0ca51e116)](https://vizhub.com/JoseMorales7/5b048d57e4a8440fab4d4c108d6916fc)
+[![image](https://github.com/user-attachments/assets/9226386a-5b85-4b1a-b59f-b348b6b20107)](https://vizhub.com/JoseMorales7/a46f3244f23345babff73bc441609f85)
+
+
 
 ---
 
