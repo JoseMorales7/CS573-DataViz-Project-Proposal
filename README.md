@@ -159,6 +159,15 @@ I’ve made some final touch-ups to my visualizations. Based on Matt’s feedbac
 [![image](https://github.com/user-attachments/assets/4ee1e5d4-d158-45de-96a0-79e0ca51e116)](https://vizhub.com/JoseMorales7/5b048d57e4a8440fab4d4c108d6916fc)
 [![image](https://github.com/user-attachments/assets/9226386a-5b85-4b1a-b59f-b348b6b20107)](https://vizhub.com/JoseMorales7/a46f3244f23345babff73bc441609f85)
 
+# Updates – 12/3/2025
+
+I made several final improvements to my visualizations. Most notably, I significantly improved the performance of the interactive NYC crash map by moving all incident point rendering from individual SVG circles to a single HTML canvas layer. This reduced the number of DOM elements dramatically and made zooming and panning much smoother. I also resolved an issue where the borough summary tooltip that appears on hover was being hidden behind the incident points by adjusting the layer ordering so that the tooltip is always displayed on top. In addition, I updated the smoothed interactive sparkline of crashes over time to ensure that the y-axis now begins at zero, preventing any unintentional exaggeration of changes in incident counts.
+
+[![image](https://github.com/user-attachments/assets/58b7dc67-bb11-4db4-84f5-f993916905ad)](https://vizhub.com/JoseMorales7/ea74102640804c95811176b698a316c7)
+[![image](https://github.com/user-attachments/assets/054ea277-0fd8-4312-bf11-e0cfc870536b)](https://vizhub.com/JoseMorales7/6390af510b3d46d69e2b53b671f0ebe5)
+
+
+
 
 
 ---
