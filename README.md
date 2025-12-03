@@ -5,61 +5,63 @@
 
 ## **Overview**
 
-This project examines patterns in NYC motor vehicle collisions using two datasets published by the NYPD:
+This project analyzes patterns in NYC motor vehicle collisions using two datasets published by the NYPD:
 
 - **Motor Vehicle Collisions – Crashes**  
-  Contains details such as **date/time**, **borough**, **location**, and **injury/fatality counts**.
+  Includes **date**, **time**, **borough**, **location**, and counts of **injuries** and **fatalities**.
 
 - **Motor Vehicle Collisions – Vehicles**  
-  Includes information on the **vehicles involved**, such as make and model.
+  Contains details about the **vehicles involved**, including make and model.
 
-By merging both datasets on their shared **collision ID**, I set out to answer a broader guiding question:
+By merging both datasets on their shared **collision ID**, I developed a series of interactive visualizations to answer a guiding question:
 
 > **Under what conditions is it most dangerous to drive in NYC?**
 
-Over the course of the project, I iteratively explored the data, built sketches and prototypes, and developed several interactive D3 visualizations.  
-This README documents the process in report form—highlighting methods, decisions, results, and lessons learned.
+The process included data cleaning, exploratory sketches, iterative prototyping, geospatial processing, and performance-focused refactoring.  
+This report summarizes the visualizations and insights that emerged.
 
 ---
 
 ## **Research Questions**
 
-To break down the main question, I explored the following:
+To explore the central question, I examined several aspects of crash activity:
 
 1. **What times of day see the highest crash activity?**  
-2. **Are certain times of year more dangerous than others?**  
-3. **How do crash rates vary across NYC’s boroughs?**  
-4. **Which vehicle makes appear most frequently in crashes?**  
-   *(Moved to “Next Steps” due to data normalization challenges.)*
+2. **Are certain months or seasons more dangerous?**  
+3. **How do crash rates vary across the boroughs?**  
+4. **Which vehicle makes appear most frequently in crash records?**  
+   *(Explored but difficult to interpret without registration data for normalization.)*
 
 ---
 
 ## **Initial Sketches**
 
-Before building anything interactive, I created early sketches to explore possible chart types.
+Before building full interactive views, I created small hand-sketched prototypes to experiment with possible chart types.
 
 ### **Vehicle Make Frequency Bar Chart**
+
+A straightforward bar chart comparing crash counts by vehicle make.
 <img width="665" src="https://github.com/user-attachments/assets/327fbd4d-0351-4c77-a1de-bca06cbd5f0e" />
 
-A simple bar chart comparing crash counts by vehicle make.
-
 ### **Bubble Chart Alternative**
+
+A more visually expressive option, but ultimately too difficult for precise comparison.
 <img width="808" src="https://github.com/user-attachments/assets/9aa54e61-35dd-4cc1-b10f-25e5cd1f029e" />
 
-Although visually interesting, the bubble chart made comparison difficult, so I opted not to use this form later.
+These early sketches helped guide the design choices that followed.
 
 ---
 
-## **Early Prototype: Crash Counts by Hour**
+## **Crash Counts by Hour**
 
-One of my first working visualizations was a stacked bar chart showing total crashes by hour of day, with injuries and fatalities broken out as separate layers.
-
+One of the first functional visualizations was a stacked bar chart showing total collisions per hour of day, including injuries and fatalities as separate layers.
 [![image](https://github.com/user-attachments/assets/05870ee7-9732-498a-b1ba-507c50bcd7f8)](https://vizhub.com/JoseMorales7/8f5a29dbad174b1a90e7671b09b654e2)
 
 **Insights:**
-- Collisions peak between **4–5 PM**, consistent with evening rush hour.
-- The safest window appears to be **2–5 AM**.
-- Fatal crashes occur too infrequently to appear visibly in the stack, but the data is still represented.
+
+- Collisions peak between **4–5 PM**, aligning with evening rush hour.  
+- The lowest crash window occurs between **2–5 AM**.  
+- Fatal crashes are rare enough that they appear only minimally in the stack.
 
 ---
 
@@ -67,108 +69,81 @@ One of my first working visualizations was a stacked bar chart showing total cra
 
 ## **1. Borough-Level Crash Map**
 
-My first major interactive visualization mapped total crashes per borough.
-
+The first interactive visualization mapped total crash counts across NYC’s boroughs.  
+This required cleaning geographic boundary data and joining it with aggregated crash statistics.
 [![image](https://github.com/user-attachments/assets/9938e342-c797-43d8-b58b-60f70b30d889)](https://vizhub.com/JoseMorales7/e3127b2fe72b4cb1a181fda3499f9aa7)
-
-This required preparing cleaned geographic boundary assets and associating them with aggregated crash counts.
 
 ---
 
 ## **2. Crash Locations Across NYC (2025)**
 
-I plotted individual crash points for 2025. The resulting density revealed NYC’s street grid directly from the data.
-
+Plotting individual crash locations for 2025 revealed dense street patterns across the city.  
+The city’s grid becomes clearly visible through the concentration of collision points alone.
 [![image](https://github.com/user-attachments/assets/44627be9-088f-4986-9bed-ee3adf4a900b)](https://vizhub.com/JoseMorales7/4c4fcb7e1530498a986035a3d1fbe64f)
 
 ---
 
 ## **3. Vehicle Make Frequency**
 
-A deeper look at which vehicle makes appear in recorded crashes.
-
+This visualization examines which vehicle makes appear most frequently in crash records.
 [![image](https://github.com/user-attachments/assets/41ec5a84-9d09-4b1e-8d6e-b77ec0fb9606)](https://vizhub.com/JoseMorales7/82ef6a30ea7840a7b79e017ee4831b75)
 
 **Note:**  
-Because Toyota and Honda are extremely common in NYC, they dominate the raw counts. Without data on the number of registered vehicles per make, it’s not possible to *normalize* this chart to reflect true risk rates. Thus, this analysis is included only as an exploratory step—see **Next Steps**.
+Because makes like Toyota and Honda are extremely common in NYC, they dominate the raw counts.  
+Without registration data, this visualization cannot reflect relative risk—but it remains useful as exploratory context.
 
 ---
 
-## **4. Injuries & Fatalities Map (Enhanced Interactivity)**
+## **4. Injuries & Fatalities Map (Interactive, High-Performance Visualization)**
 
-I expanded the borough map by overlaying crash points where **pedestrians**, **cyclists**, or **motorists** were injured or killed.  
-Users can toggle categories, and borough-level stats appear on hover.
+I expanded the borough-level crash map into a more advanced interactive view that overlays collision points involving **pedestrians**, **cyclists**, and **motorists** who were injured or killed. Users can toggle specific categories, pan and zoom smoothly across the map, and hover over boroughs to reveal summary statistics.
 
-[![image](https://github.com/user-attachments/assets/f1708954-a557-4406-853b-79ec5b6d8c98)](https://vizhub.com/JoseMorales7/dc3867d5156342c0b6e5189be5301ffe)
+To support interaction with thousands of plotted points, I implemented several performance optimizations:
 
-Performance was a challenge due to the number of plotted points, but careful optimization made it feasible.
+- Migrated all incident points from individual **SVG circles** to a single **HTML canvas layer**, dramatically reducing DOM overhead  
+- Cached geographic projections to avoid redundant calculations  
+- Used `requestAnimationFrame` to debounce panning and zooming  
+- Layered the SVG (with borough boundaries and tooltips) **above** the canvas, ensuring that hover summaries remain visible  
+- Added toggleable legends and intuitive map controls (click-and-drag panning and scroll-to-zoom)
 
----
-
-## **5. Interactive Legends + Map Panning/Zooming**
-
-Inspired by lecture demos, I added interactive legends to multiple charts.
-
-### Borough Crash Map With Panning/Zooming
-[![image](https://github.com/user-attachments/assets/2cfe5a94-99fa-4aba-b074-de65c85dd1ae)](https://vizhub.com/JoseMorales7/407a118dd83e4e698888cae8b58a5b54)
-
-### Crash Point Map With Toggleable Categories
-[![image](https://github.com/user-attachments/assets/e6a90c1b-cfc3-4376-abc2-75b0bbc55a7d)](https://vizhub.com/JoseMorales7/8479aa78eec8481884862041f3ba2933)
+These improvements made the visualization significantly more responsive and easier to explore, even with dense, city-wide data.
+[![image](https://github.com/user-attachments/assets/58b7dc67-bb11-4db4-84f5-f993916905ad)](https://vizhub.com/JoseMorales7/ea74102640804c95811176b698a316c7)
 
 ---
 
-## **6. Bar-Chart Interactivity Improvements**
+## **5. Bar-Chart Interactivity Improvements**
 
-### Bar Highlight on Hover
+Across several bar charts, I added enhancements to improve readability and engagement:
+
+### Hover Highlighting
+Emphasizes an individual bar when hovered, helping clarify comparisons.
 [![image](https://github.com/user-attachments/assets/51e051a3-fdef-49d7-91aa-276a2b2e16ee)](https://vizhub.com/JoseMorales7/feb40126c5aa40409a3ed9729c674f49)
 
 ### Interactive Legend for Stacked Bars
+Allows users to toggle categories on and off, especially helpful for small but important values like fatalities.
 [![image](https://github.com/user-attachments/assets/fd99e6e8-5f43-4dca-859d-6ed9c9caaa02)](https://vizhub.com/JoseMorales7/6eb1ac12bc2a46b2bc685a9f02e92d05)
-
-These interactions make the charts more intuitive and help highlight small but important values such as fatalities.
 
 ---
 
-## **7. Sparkline-Style Crash Trend Visualization**
+## **6. Sparkline-Style Crash Trend Visualization**
 
-After struggling with VizHub file-loading issues, I adapted an earlier time-series chart into a sparkline-like interactive view.
+Crash counts vary significantly day-to-day, so I designed a sparkline-style time-series visualization with smoothing applied to reveal long-term patterns.
 
-[![image](https://github.com/user-attachments/assets/7d660add-049d-46f7-8288-02256be44c46)](https://vizhub.com/JoseMorales7/3eae91ada8274f529f10ac87fd20c708)
-
-Crashes fluctuate dramatically day-to-day, so I applied smoothing for clarity:
-
-[![image](https://github.com/user-attachments/assets/017da182-8279-4a85-bc5c-883f5c7b0dff)](https://vizhub.com/JoseMorales7/16fef06f397b4139ad69c7da9cdadf9c)
+To ensure accurate representation, I corrected the y-axis so that it begins at **zero**, preventing unintentional exaggeration of small changes.
+[![image](https://github.com/user-attachments/assets/4ee1e5d4-d158-45de-96a0-79e0ca51e116)](https://vizhub.com/JoseMorales7/5b048d57e4a8440fab4d4c108d6916fc)
+[![image](https://github.com/user-attachments/assets/054ea277-0fd8-4312-bf11-e0cfc870536b)](https://vizhub.com/JoseMorales7/6390af510b3d46d69e2b53b671f0ebe5)
 
 ---
 
 # **Conclusion**
 
-Over the course of this project, I explored crash patterns in NYC through a series of interactive data visualizations. By iteratively sketching, prototyping, and refining, I developed a portfolio-ready set of tools that reveal:
+Through a series of interactive data visualizations, this project explores when and where motor vehicle collisions occur in New York City, and which road users are most affected. Taken together, the visualizations reveal:
 
-- Daily rush-hour risk peaks  
-- Borough-level differences in crash volume  
-- High-density corridors visible directly from point data  
-- Injury-specific geographic patterns  
-- Long-term crash trends via sparkline-style views  
+- Daily crash rhythms and rush-hour peaks  
+- Clear borough-level differences in crash volume  
+- High-density corridors revealed directly from point data  
+- Injury- and fatality-specific geographic patterns  
+- Longer-term temporal trends through smoothed time-series views  
 
-This project strengthened my skills in **data wrangling**, **D3**, **React**, **geospatial visualization**, and **interactive design**, and provides a strong foundation for further urban safety research.
-
-# Updates 11/22/2025
-
-I’ve made some final touch-ups to my visualizations. Based on Matt’s feedback, I updated the plot in Section 7 so that the y-axis is properly aligned and starts at 0, giving a more accurate sense of the number of daily collisions. I also optimized the visualization in Section 5, which was previously laggy due to the large data volume and some inefficiencies in the code. To address this, I restricted the dataset to collisions from 2025 and refactored the code, resulting in a slightly more efficient codebase and noticeably smoother rendering.
-[![image](https://github.com/user-attachments/assets/4ee1e5d4-d158-45de-96a0-79e0ca51e116)](https://vizhub.com/JoseMorales7/5b048d57e4a8440fab4d4c108d6916fc)
-[![image](https://github.com/user-attachments/assets/9226386a-5b85-4b1a-b59f-b348b6b20107)](https://vizhub.com/JoseMorales7/a46f3244f23345babff73bc441609f85)
-
-# Updates – 12/3/2025
-
-I made several final improvements to my visualizations. Most notably, I significantly improved the performance of the interactive NYC crash map by moving all incident point rendering from individual SVG circles to a single HTML canvas layer. This reduced the number of DOM elements dramatically and made zooming and panning much smoother. I also resolved an issue where the borough summary tooltip that appears on hover was being hidden behind the incident points by adjusting the layer ordering so that the tooltip is always displayed on top. In addition, I updated the smoothed interactive sparkline of crashes over time to ensure that the y-axis now begins at zero, preventing any unintentional exaggeration of changes in incident counts.
-
-[![image](https://github.com/user-attachments/assets/58b7dc67-bb11-4db4-84f5-f993916905ad)](https://vizhub.com/JoseMorales7/ea74102640804c95811176b698a316c7)
-[![image](https://github.com/user-attachments/assets/054ea277-0fd8-4312-bf11-e0cfc870536b)](https://vizhub.com/JoseMorales7/6390af510b3d46d69e2b53b671f0ebe5)
-
-
-
-
-
----
-
+This project strengthened my skills in **data wrangling**, **React**, **D3**, **TopoJSON**, **canvas/SVG rendering**, **performance optimization**, and **interactive design**.  
+The resulting tools provide a strong foundation for deeper analysis of urban safety and transportation planning.
