@@ -51,8 +51,9 @@ A more visually expressive option, but ultimately too difficult for precise comp
 These early sketches helped guide the design choices that followed.
 
 ---
+# **Static Visualizations**
 
-## **Crash Counts by Hour**
+## **1. Crash Counts by Hour**
 
 One of the first functional visualizations was a stacked bar chart showing total collisions per hour of day, including injuries and fatalities as separate layers.
 [![image](https://github.com/user-attachments/assets/05870ee7-9732-498a-b1ba-507c50bcd7f8)](https://vizhub.com/JoseMorales7/8f5a29dbad174b1a90e7671b09b654e2)
@@ -63,27 +64,19 @@ One of the first functional visualizations was a stacked bar chart showing total
 - The lowest crash window occurs between **2–5 AM**.  
 - Fatal crashes are rare enough that they appear only minimally in the stack.
 
----
+## **2. Borough-Level Crash Map**
 
-# **Interactive Visualizations**
-
-## **1. Borough-Level Crash Map**
-
-The first interactive visualization mapped total crash counts across NYC’s boroughs.  
+This visualization mapped the total crash counts across NYC’s boroughs.  
 This required cleaning geographic boundary data and joining it with aggregated crash statistics.
 [![image](https://github.com/user-attachments/assets/9938e342-c797-43d8-b58b-60f70b30d889)](https://vizhub.com/JoseMorales7/e3127b2fe72b4cb1a181fda3499f9aa7)
 
----
-
-## **2. Crash Locations Across NYC (2025)**
+## **3. Crash Locations Across NYC (2025)**
 
 Plotting individual crash locations for 2025 revealed dense street patterns across the city.  
 The city’s grid becomes clearly visible through the concentration of collision points alone.
 [![image](https://github.com/user-attachments/assets/44627be9-088f-4986-9bed-ee3adf4a900b)](https://vizhub.com/JoseMorales7/4c4fcb7e1530498a986035a3d1fbe64f)
 
----
-
-## **3. Vehicle Make Frequency**
+## **4. Vehicle Make Frequency**
 
 This visualization examines which vehicle makes appear most frequently in crash records.
 [![image](https://github.com/user-attachments/assets/41ec5a84-9d09-4b1e-8d6e-b77ec0fb9606)](https://vizhub.com/JoseMorales7/82ef6a30ea7840a7b79e017ee4831b75)
@@ -94,7 +87,9 @@ Without registration data, this visualization cannot reflect relative risk—but
 
 ---
 
-## **4. Injuries & Fatalities Map (Interactive, High-Performance Visualization)**
+# **Interactive Visualizations**
+
+## **1. Injuries & Fatalities Map (Interactive, High-Performance Visualization)**
 
 I expanded the borough-level crash map into a more advanced interactive view that overlays collision points involving **pedestrians**, **cyclists**, and **motorists** who were injured or killed. Users can toggle specific categories, pan and zoom smoothly across the map, and hover over boroughs to reveal summary statistics.
 
@@ -111,7 +106,7 @@ These improvements made the visualization significantly more responsive and easi
 
 ---
 
-## **5. Bar-Chart Interactivity Improvements**
+## **2. Bar-Chart Interactivity Improvements**
 
 Across several bar charts, I added enhancements to improve readability and engagement:
 
@@ -125,7 +120,7 @@ Allows users to toggle categories on and off, especially helpful for small but i
 
 ---
 
-## **6. Sparkline-Style Crash Trend Visualization**
+## **3. Sparkline-Style Crash Trend Visualization**
 
 Crash counts vary significantly day-to-day, so I designed a sparkline-style time-series visualization with smoothing applied to reveal long-term patterns.
 
